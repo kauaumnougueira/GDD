@@ -19,3 +19,7 @@ Auth::routes();
 
 Route::get('/', [Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', function(){ return redirect()->route('home'); });
+Route::get('/relatorios', [Controllers\PagesController::class, 'relatorios'])->name('relatorios');
+Route::get('/membros', [Controllers\PagesController::class, 'membros'])->name('membros');
+Route::get('/novaVida', [Controllers\PagesController::class, 'novaVida'])->name('novaVida');
+Route::get('/backup', [Controllers\PagesController::class, 'backup'])->name('backup');
