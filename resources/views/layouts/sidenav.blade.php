@@ -56,12 +56,12 @@
 
 <style>
     body {
-    font-size: .875rem;
+    font-size: .900rem;
   }
 
   .feather {
-    width: 16px;
-    height: 16px;
+    width: 25px;
+    height: 25px;
     vertical-align: text-bottom;
   }
 

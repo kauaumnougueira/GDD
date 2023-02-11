@@ -1,41 +1,37 @@
 
 <footer class="bg-light text-center fixed-bottom border-top">
-            <!-- Grid container -->
-            <div class="container p-4 pb-0">
-                <!-- Section: Form -->
+            <!-- Grid container <div class="container p-4 pb-0">
+
                 <section class="">
-                <form action="{{ 'route(\'manutencao\')' }}">
-                    <!--Grid row-->
+                <form action="{{ 'route(\'manutencao\')' }}" method="POST">
+                @csrf
+
                     <div class="row d-flex justify-content-center">
-                    <!--Grid column-->
-                    <div class="col-auto">
+
                         <p class="pt-2">
                         Nos envie sua dúvida ou sugestão
                         </p>
                     </div>
-                    <!--Grid column-->
 
-                    <!--Grid column-->
                     <div class="col-md-4 col-12">
-                        <!-- Email input -->
+
                         <div class="form-outline mb-4">
-                        <input type="text" class="form-control" />
+                        <input type="text" class="form-control" name="message" placeholder="Pesquisar"/>
                         </div>
                     </div>
-                    <!--Grid column-->
 
-                    <!--Grid column-->
                     <div class="col-auto">
-                        <!-- Submit button -->
-                        <button type="submit" class="btn btn-primary mb-4">Enviar</button>
+                       
+                        <button type="submit" class="btn btn-primary mb-4">Enter</button>
                     </div>
-                    <!--Grid column-->
+
                     </div>
-                    <!--Grid row-->
+
                 </form>
                 </section>
-                <!-- Section: Form -->
-            </div>
+
+            </div> -->
+
             <!-- Grid container -->
 
             <!-- Copyright -->

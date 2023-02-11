@@ -9,6 +9,8 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <link rel="shortcut icon" href="{{ url('storage\app\public\img\icone_app.ico') }}" type="image/x-icon">
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
@@ -69,13 +71,19 @@
                                         @csrf
                                     </form>
                                 </div>
+
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="">
+                                        {{ __('Perfil') }}
+                                    </a>
+                                </div>
                             </li>
                         @endguest
                     </ul>
                 </div>
             </div>
         </nav>
-        
+
         <main class="py-4">
             @yield('content')
         </main>

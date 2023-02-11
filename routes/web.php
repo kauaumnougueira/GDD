@@ -23,3 +23,5 @@ Route::get('/relatorios', [Controllers\PagesController::class, 'relatorios'])->n
 Route::get('/membros', [Controllers\PagesController::class, 'membros'])->name('membros');
 Route::get('/novaVida', [Controllers\PagesController::class, 'novaVida'])->name('novaVida');
 Route::get('/backup', [Controllers\PagesController::class, 'backup'])->name('backup');
+
+//Route::post('/search', [Controllers\FooterController::class, 'manutencao'])->name('manutencao');
