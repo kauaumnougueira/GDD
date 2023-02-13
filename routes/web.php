@@ -25,3 +25,4 @@ Route::get('/novaVida', [Controllers\PagesController::class, 'novaVida'])->name(
 Route::get('/backup', [Controllers\PagesController::class, 'backup'])->name('backup');
 
 //Route::post('/search', [Controllers\FooterController::class, 'manutencao'])->name('manutencao');
+Route::post('/save-edit', [Controllers\MembrosController::class, 'editar'])->name('save-edit');
