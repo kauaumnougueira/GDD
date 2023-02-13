@@ -26,12 +26,9 @@ class MembrosController extends Controller
         $users = MembrosController::consulta();
         $atribuir = new CargosController;
 
-        //Log::debug('Debug message');
-        dd($request);
-        $form_id = $request->input('user_id');
-        $form_cargo = $request->input('user_cargo');
-        //dd($form_cargo);
         foreach($users as $user){
+            $form_id = $request->input('user_'.$user->id.'_id');
+            $form_cargo = $request->input('user_'.$user->id.'_cargo');
             if($user->id == $form_id){
                 $atribuir->atribuir($user, $form_cargo);
             }

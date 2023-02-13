@@ -35,8 +35,8 @@
                                 <td>{{ $user->name }}</td>
                                 <div class="form-group">
                                     <td>
-                                        <input type="hidden" name="user_id" value="{{ $user->id }}">
-                                        <select class="form-control" id="select" name="user_cargo" style="border:none; pointer-events: none">
+                                        <input type="hidden" name="user_{{ $user->id }}_id" value="{{ $user->id }}">
+                                        <select class="form-control" id="select" name="user_{{ $user->id }}_cargo" style="border:none; pointer-events: none">
                                             <option>{{ $cargos[$user->cargo_id - 1]->nome }}</option>
                                             @foreach($cargos as $cargo)
                                             @if($cargo->nome != $cargos[$user->cargo_id - 1]->nome)
