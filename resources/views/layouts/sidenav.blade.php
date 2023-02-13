@@ -1,41 +1,43 @@
-
 <nav class="col-md-2 d-none d-md-block bg-light sidebar pb-4 pt-4">
     <div class="sidebar-sticky">
-    <ul class="nav flex-column">
-        <li class="nav-item">
-        <a class="nav-link {{ $index[0] }}" href="{{ route('home') }}">
-            <span data-feather="home"></span>
-            Visão Geral <span class="sr-only">(current)</span>
-        </a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link {{ $index[1] }}" href="{{ route('relatorios') }}">
-            <span data-feather="file"></span>
-            Relatórios
-        </a>
-        </li>
-
-        <li class="nav-item">
-        <a class="nav-link {{ $index[2] }}" href="{{ route('membros') }}">
-            <span data-feather="users"></span>
-            Membros
-        </a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link {{ $index[3] }}" href="{{ route('novaVida') }}">
-            <span data-feather="heart"></span>
-            Nova Vida
-        </a>
-        </li>
-        <li class="nav-item">
-        <a class="nav-link {{ $index[4] }}" href="{{ route('backup') }}">
-            <span data-feather="database"></span>
-            Backups
-        </a>
-        </li>
-    </ul>
-
-
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link {{ $index[0] }}" href="{{ route('home') }}">
+                    <span data-feather="home"></span>
+                    Visão Geral <span class="sr-only">(current)</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ $index[1] }}" href="{{ route('relatorios') }}">
+                    <span data-feather="file"></span>
+                    Relatórios
+                </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link {{ $index[2] }} dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    <span data-feather="users"></span>
+                    Membros
+                </a>
+                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    @if(Auth::user()->cargo_id == $cargos[0]->id)
+                    <a class="dropdown-item" href="{{ route('membros-edit') }}">Adcionar</a>
+                    @endif
+                    <a class="dropdown-item" href="{{ route('membros-view') }}">Visualizar</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ $index[3] }}" href="{{ route('novaVida') }}">
+                    <span data-feather="heart"></span>
+                    Nova Vida
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ $index[4] }}" href="{{ route('backup') }}">
+                    <span data-feather="database"></span>
+                    Backups
+                </a>
+            </li>
+        </ul>
     </div>
 </nav>
 

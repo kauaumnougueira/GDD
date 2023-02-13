@@ -25,6 +25,7 @@
                                 <th scope="col">Nome</th>
                                 <th scope="col">Cargo</th>
                                 <th scope="col">Email</th>
+                                <th scope="col">Telefone</th>
                                 <th scope="col">Entrada</th>
                             </tr>
                         </thead>
@@ -47,13 +48,23 @@
                                     </td>
                                 </div>
                                 <td>{{ $user->email }}</td>
-                                <td>{{ $user->entrada_cel }}</td>
+                                <td>{{ $user->telefone }}</td>
+                                <td>
+                                    <select class="form-control" id="select" name="user_{{ $user->id }}_entrada" style="border:none; pointer-events: none">
+                                        <option>{{ $entradas[$user->entrada_id -1]->nome}}</option>
+                                        @foreach($entradas as $entrada)
+                                        @if($entrada->nome != $entradas[$user->entrada_id -1]->nome)
+                                        <option>{{ $entrada->nome }}</option>
+                                        @endif
+                                        @endforeach
+                                    </select>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
                     <div>
-                        <button class="btn btn-dark " id="salvar" style="display:none;" type="submit">Salvar</button>
+                        <input type="submit" class="btn btn-dark " value="Salvar" id="salvar" style="display:none;">
                     </div>
                 </div>
             </form>
