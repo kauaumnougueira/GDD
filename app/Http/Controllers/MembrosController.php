@@ -60,7 +60,7 @@ class MembrosController extends Controller
     }
 
 
-    public function membros_edit(){
+    public function membros_create_form(){
         $users = MembrosController::consulta()->sortBy('cargo_id'); //ordem por cargo
 
         $cargosController = new CargosController;
@@ -68,7 +68,7 @@ class MembrosController extends Controller
 
         $entradas = MembrosController::consulta_entrada();
 
-        return view('membros.membros-edit', [
+        return view('membros.membros-create', [
             'users' => $users,
             'cargos' => $cargos,
             'entradas' => $entradas
@@ -86,6 +86,7 @@ class MembrosController extends Controller
             'entrada_id' => $request['entrada_id'],
        ];
 
+       $user['password'] = bcrypt($user['password']); //criptografia
        User::insert($user);
        return MembrosController::membros_view();
     }

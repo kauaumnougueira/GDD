@@ -24,7 +24,7 @@ Route::get('/relatorios', [Controllers\PagesController::class, 'relatorios'])->n
 Route::get('/membros-view', [Controllers\MembrosController::class, 'membros_view'])->name('membros-view');
 Route::post('/save-edit', [Controllers\MembrosController::class, 'editar'])->name('save-edit');
 
-Route::get('/membros-edit', [Controllers\MembrosController::class, 'membros_edit'])->name('membros-edit');
+Route::get('/membros-edit', [Controllers\MembrosController::class, 'membros_create_form'])->name('membros-create-form');
 Route::post('/membros-create', [Controllers\MembrosController::class, 'membros_create'])->name('membros-create');
 
 Route::get('/novaVida', [Controllers\PagesController::class, 'novaVida'])->name('novaVida');

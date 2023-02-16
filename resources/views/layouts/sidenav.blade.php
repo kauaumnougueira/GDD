@@ -4,7 +4,7 @@
             <li class="nav-item">
                 <a class="nav-link {{ $index[0] }}" href="{{ route('home') }}">
                     <span data-feather="home"></span>
-                    Visão Geral <span class="sr-only">(current)</span>
+                    Visão Geral
                 </a>
             </li>
             <li class="nav-item">
@@ -24,7 +24,7 @@
                 <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
                 <div class="accordion-body">
                 @if(Auth::user()->cargo_id == $cargos[0]->id)
-                <a class="nav-link" href="{{ route('membros-edit') }}">
+                <a class="nav-link" href="{{ route('membros-create-form') }}">
                     <span data-feather="user-plus" class="feather-accordion-body"></span>
                     Adcionar
                 </a>
