@@ -3,20 +3,20 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
-        <!-- a posição dos vetores é referente ao active do nav ( ideia minha :) ) -->
-        @include('layouts.sidenav', ['index' => ['', '', 'active', '', '']])
+        <!-- a posição dos vetores é referente ao active do nav   ( ideia minha :) ) -->
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 ">
                 <h1 class="h2">Membros</h1>
 
                 @if(Auth::user()->cargo_id == $cargos[0]->id)
-                <button class="btn btn-dark mr-auto mx-5" onclick="showEdit()">editar</button>
+                    <button class="btn btn-dark mr-auto mx-5" onclick="showEdit()" id="editar" style="display:''"> Editar </button>
+                    <button class="btn btn-dark mr-auto mx-5" id="salvar" style="display:none;"> Salvar </button>
                 @endif
             </div>
             <!-- view para todos -->
-            <form action="{{ route('save-edit') }}" method="POST">
-                @csrf
+            <form action="{{ route('save-edit') }}" method="POST" id="form-edit">
+            @csrf
                 <div>
                     <table class="table">
                         <thead>
@@ -63,9 +63,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    <div>
-                        <input type="submit" class="btn btn-dark " value="Salvar" id="salvar" style="display:none;">
-                    </div>
+
                 </div>
             </form>
         </main>
@@ -89,9 +87,11 @@
 
 </div>
 <script>
+    let selects = document.getElementsByClassName("form-control")
+    let Salvar = document.getElementById("salvar")
+    let editar = document.getElementById("editar")
+
     function showEdit() {
-        let selects = document.getElementsByClassName("form-control")
-        let Salvar = document.getElementById("salvar")
 
         //torna editável
         for (let i = 0; i < selects.length; i++) {
@@ -105,11 +105,17 @@
         }
 
         if (salvar.style.display === "none") {
+            editar.style.display = "none"
             salvar.style.display = ""
-        } else {
+            salvar.addEventListener("click", salvarfunc);
+        }else {
+            editar.style.display = ""
             salvar.style.display = "none"
         }
-
+    }
+    function salvarfunc(){
+        let form = document.getElementById('form-edit');
+        form.submit();
     }
 </script>
 @endsection

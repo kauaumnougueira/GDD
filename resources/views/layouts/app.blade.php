@@ -21,8 +21,11 @@
 </head>
 <body>
     <div id="app">
+        @if(Route::getCurrentRoute()->getName() != 'login' &&  Route::getCurrentRoute()->getName() != 'register')
+            @include('layouts.sidenav')
+        @endif
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+            <div class="container col-md-8">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
@@ -82,12 +85,13 @@
             </div>
         </nav>
 
-        <main class="py-4">
-            @yield('content')
+        <main class="py-4" id="main">
+           @yield('content')
         </main>
 
         @include('layouts.footer')
 
     </div>
+
 </body>
 </html>

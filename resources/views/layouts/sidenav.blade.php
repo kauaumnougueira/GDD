@@ -1,4 +1,28 @@
-<nav class="col-md-2 d-none d-md-block bg-light sidebar pb-4 pt-4">
+<!---  Algoritmo simples pra identificar rota e adcionar active a nav   -->
+@php
+    $currentRota = Route::getCurrentRoute()->getName()
+@endphp
+@php
+    $rotas = ["home", "relatorios", "membros", "novaVida", "backup"]
+@endphp
+@php
+    $index = []
+@endphp
+
+@foreach($rotas as $indice => $rota)
+    @if(str_contains($currentRota, $rota))
+        @php
+            $index[$indice] = "active";
+        @endphp
+    @else
+        @php
+            $index[$indice] = " ";
+        @endphp
+    @endif
+@endforeach
+
+
+<nav class="col-md-2 d-none d-md-block bg-light sidebar">
     <div class="sidebar-sticky">
         <ul class="nav flex-column position-static">
             <li class="nav-item">
@@ -14,7 +38,7 @@
                 </a>
             </li>
             <li class="accordion" id="accordionMembros">
-            <div class="accordion-item border-0">
+            <div class="accordion-item border-top-0 border-bottom-0">
                 <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
                 <button class="nav-link {{ $index[2] }} accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
                 <span data-feather="users"></span>
@@ -23,12 +47,11 @@
                 </h2>
                 <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
                 <div class="accordion-body">
-                @if(Auth::user()->cargo_id == $cargos[0]->id)
+
                 <a class="nav-link" href="{{ route('membros-create-form') }}">
                     <span data-feather="user-plus" class="feather-accordion-body"></span>
                     Adcionar
                 </a>
-                    @endif
                     <a class="nav-link" href="{{ route('membros-view') }}">
                         <span data-feather="eye" class="feather-accordion-body"></span>
                         Visualizar
@@ -53,7 +76,9 @@
         </ul>
     </div>
 </nav>
-
+<main>
+    
+</main>
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
