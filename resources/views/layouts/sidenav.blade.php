@@ -21,7 +21,6 @@
     @endif
 @endforeach
 
-
 <nav class="col-md-2 d-none d-md-block bg-light sidebar">
     <div class="sidebar-sticky">
         <ul class="nav flex-column position-static">
@@ -46,17 +45,16 @@
                 </button>
                 </h2>
                 <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
-                <div class="accordion-body">
-
-                <a class="nav-link" href="{{ route('membros-create-form') }}">
-                    <span data-feather="user-plus" class="feather-accordion-body"></span>
-                    Adcionar
-                </a>
-                    <a class="nav-link" href="{{ route('membros-view') }}">
-                        <span data-feather="eye" class="feather-accordion-body"></span>
-                        Visualizar
-                    </a>
-                </div>
+                    <div class="accordion-body">
+                        <a class="nav-link" href="{{ route('membros-create-form') }}">
+                            <span data-feather="user-plus" class="feather-accordion-body"></span>
+                            Adcionar
+                        </a>
+                        <a class="nav-link" href="{{ route('membros-view') }}">
+                            <span data-feather="eye" class="feather-accordion-body"></span>
+                            Visualizar
+                        </a>
+                    </div>
                 </div>
             </div>
             </li>
@@ -77,7 +75,7 @@
     </div>
 </nav>
 <main>
-    
+
 </main>
 <!-- Bootstrap core JavaScript
 ================================================== -->
@@ -90,11 +88,7 @@
 <script src="../../assets/js/vendor/popper.min.js"></script>
 <script src="../../dist/js/bootstrap.min.js"></script>
 
-<!-- Icons -->
-<script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
-<script>
-    feather.replace()
-</script>
+
 
 <style>
     body {
@@ -119,20 +113,6 @@
         top: 100%;
         left: 0;
         z-index: 1000;
-    }
-
-
-
-    .feather {
-        width: 25px;
-        height: 25px;
-        vertical-align: text-bottom;
-    }
-
-    .feather-accordion-body{
-        width: 20px;
-        height: 20px;
-        vertical-align: text-bottom;
     }
 
     /*

@@ -93,7 +93,6 @@ class MembrosController extends Controller
 
 
     //entradas
-
     //read entradas
     public function consulta_entrada(){
         $entradas = Entrada::all();

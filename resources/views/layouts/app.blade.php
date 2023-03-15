@@ -79,6 +79,10 @@
                                     </a>
                                 </div>
                             </li>
+                            <li>
+                                <span data-feather="moon" style="cursor: pointer" onclick="toDark()" id="moon"></span>
+                                <span data-feather="sun" style="cursor: pointer; display: none" id="sun"></span>
+                            </li>
                         @endguest
                     </ul>
                 </div>
@@ -92,6 +96,52 @@
         @include('layouts.footer')
 
     </div>
+    <!-- Icons -->
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+    <script>
+        feather.replace()
+    </script>
+
+    <style>
+
+        .feather {
+            width: 25px;
+            height: 25px;
+            vertical-align: text-bottom;
+        }
+
+        .feather-accordion-body{
+            width: 20px;
+            height: 20px;
+            vertical-align: text-bottom;
+        }
+    </style>
+
+    <script>
+        //dark
+        let sun = document.getElementById("sun")
+        let moon = document.getElementById("moon")
+        let body = document.querySelector('body')
+
+        function toDark(){
+            //trocar icon
+            if(moon.style.display === ""){
+                moon.style.display = "none"
+                sun.style.display = ""
+                sun.addEventListener("click", toLight)
+                body.classList.toggle('dark-mode');
+            }
+        }
+
+        function toLight(){
+            //trocar ícon
+            if(sun.style.display === ""){
+                sun.style.display = "none"
+                moon.style.display = ""
+            }
+
+        }
+    </script>
 
 </body>
 </html>

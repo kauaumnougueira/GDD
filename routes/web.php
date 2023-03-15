@@ -34,3 +34,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     //Route::post('/search', [Controllers\FooterController::class, 'manutencao'])->name('manutencao');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
