@@ -46,11 +46,11 @@
                 </h2>
                 <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
                     <div class="accordion-body">
-                        <a class="nav-link" href="{{ route('membros-create-form') }}">
+                        <a class="nav-link" href="{{ route('membros-create-form') }}" id="link_ajax">
                             <span data-feather="user-plus" class="feather-accordion-body"></span>
                             Adcionar
                         </a>
-                        <a class="nav-link" href="{{ route('membros-view') }}">
+                        <a class="nav-link" href="{{ route('membros-view') }}" id="link_ajax">
                             <span data-feather="eye" class="feather-accordion-body"></span>
                             Visualizar
                         </a>

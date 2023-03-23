@@ -31,12 +31,12 @@
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="exemplo_email@gmail.com">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
-                                    </span>
+                                    </span> 
                                 @enderror
                             </div>
                         </div>
@@ -59,7 +59,7 @@
                             <label  class="col-md-4 col-form-label text-md-end">{{ __('Telefone') }}</label>
 
                             <div class="col-md-6">
-                                <input id="telefone" type="text" class="form-control @error('password') is-invalid @enderror" name="telefone">
+                                <input id="telefone" type="text" class="form-control @error('password') is-invalid @enderror" name="telefone" placeholder="(98) 9 9999-9999">
                             </div>
                         </div>
 
