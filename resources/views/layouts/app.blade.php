@@ -21,17 +21,25 @@
 </head>
 <body>
     <div id="app">
-        @if(Route::getCurrentRoute()->getName() != 'login' &&  Route::getCurrentRoute()->getName() != 'register')
-            @include('layouts.sidenav')
-        @endif
+        <div class="nav">
+            @if(Route::getCurrentRoute()->getName() != 'login' &&  Route::getCurrentRoute()->getName() != 'register')
+                @include('layouts.sidenav')
+            @endif
+        </div>
 
-        @include('layouts.header')
+        <div class="header">
+            @include('layouts.header')
+        </div>
+
 
         <main class="py-4" id="content">
            @yield('content')
         </main>
 
-        @include('layouts.footer')
+        <div class="footer">
+            @include('layouts.footer')
+        </div>
+
 
     </div>
     <!-- Icons -->

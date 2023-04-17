@@ -36,7 +36,7 @@
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
-                                    </span> 
+                                    </span>
                                 @enderror
                             </div>
                         </div>
@@ -59,7 +59,7 @@
                             <label  class="col-md-4 col-form-label text-md-end">{{ __('Telefone') }}</label>
 
                             <div class="col-md-6">
-                                <input id="telefone" type="text" class="form-control @error('password') is-invalid @enderror" name="telefone" placeholder="(98) 9 9999-9999">
+                                <input id="telefone" type="text" class="form-control" name="telefone">
                             </div>
                         </div>
 
@@ -91,6 +91,14 @@
                             </div>
                         </div>
 
+                        <div class="row mb-3">
+                            <label class="col-md-4 col-form-label text-md-end">{{ __('Aniverário') }}</label>
+
+                            <div class="col-md-6">
+                            <input id="" type="text" class="form-control" name="aniversario" placeholder="DD/MM/AAAA">
+                            </div>
+                        </div>
+
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
@@ -104,5 +112,9 @@
         </div>
     </div>
 </div>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+<script>
+    $("#telefone").mask("(00) 0 0000-0000"); // n funciona ainda
+</script>
 @endsection

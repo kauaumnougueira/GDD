@@ -9,7 +9,7 @@
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 ">
                 <h1 class="h2">Membros</h1>
 
-                @if(Auth::user()->cargo_id == $cargos[0]->id)
+                @if(Auth::user()->cargo_id == $cargos[0]->id) <!--admin-->
                     <button class="btn btn-dark mr-auto mx-5" onclick="showEdit()" id="editar" style="display:''"> Editar </button>
                     <button class="btn btn-dark mr-auto mx-5" id="salvar" style="display:none;"> Salvar </button>
                 @endif
@@ -27,6 +27,7 @@
                                 <th scope="col">Email</th>
                                 <th scope="col">Telefone</th>
                                 <th scope="col">Entrada</th>
+                                <th scope="col">Aniversário</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -59,6 +60,7 @@
                                         @endforeach
                                     </select>
                                 </td>
+                                <td>{{ $user->aniversario }}</td>
                             </tr>
                             @endforeach
                         </tbody>

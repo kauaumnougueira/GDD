@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Entrada;
+use App\Models\Aniversario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -25,6 +26,7 @@ class MembrosController extends Controller
     }
 
     //update
+    //possivelmente recarrega todos os dados para salvar (nao produtivo ?!)
     public function editar(Request $request){
         $users = MembrosController::consulta();
         $atribuir = new CargosController; //chama função atribuir la em baixo
@@ -33,10 +35,12 @@ class MembrosController extends Controller
             $form_id = $request->input('user_'.$user->id.'_id');
             $form_cargo = $request->input('user_'.$user->id.'_cargo');
             $form_entrada = $request->input('user_'.$user->id.'_entrada');
+            $form_aniversario = $request->input('user_'.$user->id.'_aniversario');
 
             if($user->id == $form_id){
                 $atribuir->atribuir($user, $form_cargo);
                 MembrosController::entradas_edit($user, $form_entrada);
+                $user->aniversario = $form_aniversario;
             }
         }
 
@@ -84,6 +88,7 @@ class MembrosController extends Controller
             'telefone' => $request['telefone'],
             'cargo_id' => $request['cargo_id'],
             'entrada_id' => $request['entrada_id'],
+            'aniversario' => $request['aniversario']
        ];
 
        $user['password'] = bcrypt($user['password']); //criptografia
@@ -93,7 +98,6 @@ class MembrosController extends Controller
 
 
     //entradas
-    //read entradas
     public function consulta_entrada(){
         $entradas = Entrada::all();
         return $entradas;
@@ -108,6 +112,8 @@ class MembrosController extends Controller
             }
         }
     }
+
+    //implementação de notificalçao de anversario
 }
 
 
